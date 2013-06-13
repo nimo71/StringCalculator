@@ -9,7 +9,9 @@ public class Operators {
 
 	private List<BinaryOperator> operators  = Arrays.asList(new BinaryOperator[] {
 			new Add(), 
-			new Subtract()
+			new Subtract(), 
+			new Multiply(), 
+			new Divide()
 	});
 
 	public BinaryOperator parse(String operatorToken) {

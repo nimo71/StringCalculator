@@ -30,5 +30,34 @@ public class CalculatorTester {
 		assertEquals(3, calculator.evaluate("6 - 3"));
 	}
 	
+	@Test
+	public void subtracts4from18() {
+		Calculator calculator = new CalculatorFactory().create();
+		assertEquals(14, calculator.evaluate("18 - 4"));
+	}
+	
+	@Test
+	public void multiplies6by3() {
+		Calculator calculator = new CalculatorFactory().create();
+		assertEquals(18, calculator.evaluate("6 * 3"));
+	}
+	
+	@Test
+	public void multiplies5by22() {
+		Calculator calculator = new CalculatorFactory().create();
+		assertEquals(110, calculator.evaluate("5 * 22"));
+	}
+	
+	@Test
+	public void divides6by3() {
+		Calculator calculator = new CalculatorFactory().create();
+		assertEquals(2, calculator.evaluate("6 / 3"));
+	}
+	
+	@Test
+	public void divides36by12() {
+		Calculator calculator = new CalculatorFactory().create();
+		assertEquals(3, calculator.evaluate("36 / 12"));
+	}
 	
 }
