@@ -60,4 +60,10 @@ public class CalculatorTester {
 		assertEquals(3, calculator.evaluate("36 / 12"));
 	}
 	
+	@Test
+	public void subtract4From18ThenAdd3() {
+		Calculator calculator = new CalculatorFactory().create();
+		assertEquals(17, calculator.evaluate("18 - 4 + 3"));
+	}
+	
 }
