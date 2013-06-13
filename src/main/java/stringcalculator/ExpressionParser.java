@@ -13,16 +13,10 @@ public class ExpressionParser {
 	public Expression parse(String exprStr) {
 		String[] tokens = exprStr.split(" ");
 		
-		ExpressionBuilder expressionFactory = new ExpressionBuilder();
-		
-		if (tokens.length < 3) 
-			return new EmptyExpression();
-		
-		return new BinaryExpression(
-				new IntOperand(Integer.parseInt(tokens[0])), 
-				operators.parse(tokens[1]), 
-				new IntOperand(Integer.parseInt(tokens[2])));
-		
-		
+		ExpressionBuilder expressionBuilder = new ExpressionBuilder(operators);
+		for (String token : tokens) {
+			expressionBuilder.next(token);
+		}
+		return expressionBuilder.build();
 	}
 }
