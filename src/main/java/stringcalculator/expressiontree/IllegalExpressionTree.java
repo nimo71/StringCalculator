@@ -1,5 +1,7 @@
-package stringcalculator;
+package stringcalculator.expressiontree;
 
+import stringcalculator.Expression;
+import stringcalculator.IllegalExpressionException;
 import stringcalculator.operator.BinaryOperator;
 
 public class IllegalExpressionTree implements ExpressionTree {

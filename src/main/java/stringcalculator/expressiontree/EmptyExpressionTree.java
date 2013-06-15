@@ -1,5 +1,7 @@
-package stringcalculator;
+package stringcalculator.expressiontree;
 
+import stringcalculator.EmptyExpression;
+import stringcalculator.Expression;
 import stringcalculator.operator.BinaryOperator;
 
 public class EmptyExpressionTree implements ExpressionTree {

@@ -1,21 +1,35 @@
 package stringcalculator;
 
+import stringcalculator.expressiontree.EmptyExpressionTree;
+import stringcalculator.expressiontree.ExpressionTree;
 import stringcalculator.operator.Operators;
 
 
 public class ExpressionParser {
-	private final ExpressionBuilder expressionBuilder;
 
+	private final Operators operators;
+	
+	private ExpressionTree tree = new EmptyExpressionTree();
+	
 	public ExpressionParser(Operators operators) {
-		expressionBuilder = new ExpressionBuilder(operators);
+		this.operators = operators;
 	}
 	
 	public Expression parse(String exprStr) {
 		String[] tokens = exprStr.split(" ");
 		
 		for (String token : tokens) {
-			expressionBuilder.next(token);
+			tree = incrementTree(token);
 		}
-		return expressionBuilder.build();
+		return tree.build();
 	}
+
+	private ExpressionTree incrementTree(String token) {
+		if (operators.isOperator(token)) { 
+			return tree.add(operators.parse(token));
+		}
+		return tree.add(new IntOperand(Integer.parseInt(token)));
+	}
+	
+	
 }
