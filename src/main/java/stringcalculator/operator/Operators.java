@@ -3,7 +3,6 @@ package stringcalculator.operator;
 import java.util.Arrays;
 import java.util.List;
 
-import stringcalculator.UnknownOperatorException;
 
 public class Operators {
 
@@ -18,7 +17,14 @@ public class Operators {
 		for (BinaryOperator op : operators) {
 			if (op.matches(operatorToken)) return op;
 		}
-		throw new UnknownOperatorException();
+		throw new UnknownOperatorException(operatorToken);
+	}
+
+	public boolean isOperator(String token) {
+		for (BinaryOperator op : operators) {
+			if (op.matches(token)) return true; 
+		}
+		return false;
 	}
 
 }
